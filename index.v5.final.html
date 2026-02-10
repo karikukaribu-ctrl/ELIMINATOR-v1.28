@@ -13,44 +13,44 @@
 </head>
 
 <body>
+  <!-- TOPBAR FIXE -->
   <header id="topBar">
     <div class="tb-left">
-      <button id="btnLeft" class="tb-icon" title="Menu gauche" aria-label="Menu gauche">≡</button>
+      <button id="btnLeft" class="tb-icon" type="button" title="Menu gauche" aria-label="Menu gauche">≡</button>
     </div>
 
     <div class="tb-center">
       <nav class="tb-nav" aria-label="Contrôles">
         <button id="modeToggle" class="tb-chip" type="button" aria-pressed="false">Clair</button>
         <button id="seasonCycle" class="tb-chip" type="button">Automne</button>
-
         <span class="tb-sep" aria-hidden="true">•</span>
-
         <button id="focusBtn" class="tb-chip tb-chip-quiet" type="button">Focus</button>
         <button id="countersBtn" class="tb-chip tb-chip-quiet" type="button">Compteurs</button>
       </nav>
     </div>
 
     <div class="tb-right">
-      <button id="btnRight" class="tb-icon" title="Panneau droit" aria-label="Panneau droit">▦</button>
+      <button id="btnRight" class="tb-icon" type="button" title="Panneau droit" aria-label="Panneau droit">▦</button>
     </div>
   </header>
 
+  <!-- BACKDROP PANNEAUX -->
   <div id="panelBack" aria-hidden="true"></div>
 
-  <!-- LEFT PANEL -->
+  <!-- PANNEAU GAUCHE -->
   <aside id="leftPanel" class="panel panel-left" aria-label="Panneau gauche">
     <div class="panel-top">
       <div id="leftResizer" class="panelResizer left" title="Redimensionner"></div>
       <div class="panel-title">Menu</div>
-      <button class="closeBtn" id="leftClose" aria-label="Fermer le panneau gauche">×</button>
+      <button class="closeBtn" id="leftClose" type="button" aria-label="Fermer le panneau gauche">×</button>
     </div>
 
     <nav class="panel-tabs" aria-label="Onglets gauche">
-      <button class="tabBtn active" data-lefttab="inbox">Inbox</button>
-      <button class="tabBtn" data-lefttab="tasks">Tâches</button>
-      <button class="tabBtn" data-lefttab="kiffance">Kiffance</button>
-      <button class="tabBtn" data-lefttab="prefs">Préférences</button>
-      <button class="tabBtn" data-lefttab="export">Export</button>
+      <button class="tabBtn active" type="button" data-lefttab="inbox">Inbox</button>
+      <button class="tabBtn" type="button" data-lefttab="tasks">Tâches</button>
+      <button class="tabBtn" type="button" data-lefttab="kiffance">Kiffance</button>
+      <button class="tabBtn" type="button" data-lefttab="prefs">Préférences</button>
+      <button class="tabBtn" type="button" data-lefttab="export">Export</button>
     </nav>
 
     <div class="panel-content">
@@ -66,8 +66,8 @@ Appeler X 1
 Lire article - 2"></textarea>
 
         <div class="row">
-          <button id="inboxAdd" class="btn primary">Ajouter</button>
-          <button id="inboxClear" class="btn ghost">Effacer champ</button>
+          <button id="inboxAdd" class="btn primary" type="button">Ajouter</button>
+          <button id="inboxClear" class="btn ghost" type="button">Effacer champ</button>
         </div>
 
         <div class="divider"></div>
@@ -170,7 +170,7 @@ Lire article - 2"></textarea>
     </div>
   </aside>
 
-  <!-- HUB -->
+  <!-- HUB CENTRAL -->
   <main id="hub">
     <div id="hub-inner">
       <h1 id="appTitle">ELIMINATOR</h1>
@@ -214,7 +214,7 @@ Lire article - 2"></textarea>
           </button>
 
           <button id="bombBtn" class="actionPill bomb" type="button" title="Dégommer 1 Éthorion">
-            💣 <span>Dégommer</span>
+            💣 <span>Dégommer 1 Éthorion</span>
           </button>
         </div>
 
@@ -229,83 +229,115 @@ Lire article - 2"></textarea>
     </div>
   </main>
 
-  <!-- RIGHT PANEL -->
+  <!-- PANNEAU DROIT -->
   <aside id="rightPanel" class="panel panel-right" aria-label="Panneau droit">
     <div class="panel-top">
       <div class="panel-title">Panneau</div>
       <div id="rightResizer" class="panelResizer right" title="Redimensionner"></div>
-      <button class="closeBtn" id="rightClose" aria-label="Fermer le panneau droit">×</button>
+      <button class="closeBtn" id="rightClose" type="button" aria-label="Fermer le panneau droit">×</button>
     </div>
 
     <nav class="panel-tabs" aria-label="Onglets droit">
-      <button class="tabBtn active" data-righttab="sets">Sets</button>
-      <button class="tabBtn" data-righttab="habits">Habitudes</button>
-      <button class="tabBtn" data-righttab="mood">Mood</button>
-      <button class="tabBtn" data-righttab="calendar">Calendrier</button>
-      <button class="tabBtn" data-righttab="notes">Notes</button>
-      <button class="tabBtn" data-righttab="stats">Stats</button>
+      <button class="tabBtn active" type="button" data-righttab="sets">Sets</button>
+      <button class="tabBtn" type="button" data-righttab="habits">Habitudes</button>
+      <button class="tabBtn" type="button" data-righttab="mood">Mood</button>
+      <button class="tabBtn" type="button" data-righttab="calendar">Calendrier</button>
+      <button class="tabBtn" type="button" data-righttab="notes">Notes</button>
+      <button class="tabBtn" type="button" data-righttab="stats">Stats</button>
     </nav>
 
     <div class="panel-content">
-      <section class="tabPage show" id="right-sets" aria-label="Sets">
-  <p class="muted small" style="margin-top:0">
-    Sets = recettes de tâches. Tu cuisines ici, tu envoies dans l’Inbox quand tu veux.
-  </p>
+      <!-- SETS -->
+      <section class="tabPage show" id="right-sets">
+        <div class="muted small">Sets = collections d’items (checklist). Base fonctionnelle.</div>
 
-  <div class="row wrap">
-    <input id="setNameNew" class="input" placeholder="Nouveau set (ex : Matin)" />
-    <button id="setAddBtn" class="btn primary" type="button">+</button>
-  </div>
+        <div class="divider"></div>
 
-  <div class="divider"></div>
-
-  <div class="setsLayout">
-    <div class="setsLeft">
-      <div class="muted small">Mes sets</div>
-      <div class="list" id="setsList"></div>
-    </div>
-
-    <div class="setsRight">
-      <div class="muted small">Contenu</div>
-
-      <div id="setEmptyHint" class="muted small" style="margin-top:10px">
-        Sélectionne un set (à gauche) ou crée-en un.
-      </div>
-
-      <div id="setEditor" hidden>
-        <div class="setHeadRow">
-          <div class="setTitle" id="setTitle">—</div>
-          <div class="setHeadActions">
-            <button id="setRunBtn" class="btn primary" type="button" title="Importer ce set dans l’Inbox">
-              Importer
-            </button>
-            <button id="setClearBtn" class="btn ghost" type="button" title="Vider ce set">Vider</button>
-          </div>
-        </div>
-
-        <div class="row wrap" style="margin-top:8px">
-          <textarea id="setItemsText" class="area" rows="6" placeholder="Une ligne = une tâche.
-Format : Titre - 3 (Éthorions)"></textarea>
+        <div class="row wrap">
+          <input id="setNewName" class="input" placeholder="Nouveau set…" />
+          <button id="setAddBtn" class="btn primary" type="button">+</button>
         </div>
 
         <div class="row wrap">
-          <button id="setItemsAddBtn" class="btn primary" type="button">Ajouter lignes</button>
+          <label class="muted small">Set actif</label>
+          <select id="setSelect" class="select"></select>
           <button id="setRenameBtn" class="btn ghost" type="button">Renommer</button>
           <button id="setDeleteBtn" class="btn danger" type="button">Supprimer</button>
         </div>
 
         <div class="divider"></div>
-        <div class="muted small">Items</div>
+
+        <div class="row wrap">
+          <input id="setItemInput" class="input" placeholder="Ajouter un item…" />
+          <button id="setItemAddBtn" class="btn primary" type="button">Ajouter</button>
+        </div>
+
         <div class="list" id="setItemsList"></div>
-      </div>
-    </div>
-  </div>
-</section>
-      <section class="tabPage" id="right-habits"><p class="muted small">Structure prête (lignes compactes au module suivant).</p></section>
-      <section class="tabPage" id="right-mood"><p class="muted small">Module expert émotions TCC au module suivant.</p></section>
-      <section class="tabPage" id="right-calendar"><p class="muted small">Calendrier + timeline au module suivant.</p></section>
-      <section class="tabPage" id="right-notes"><p class="muted small">Notes + aide-mémoire + rappels au module suivant.</p></section>
-      <section class="tabPage" id="right-stats"><p class="muted small">Infographies au module suivant.</p></section>
+      </section>
+
+      <!-- HABITS -->
+      <section class="tabPage" id="right-habits">
+        <div class="muted small">
+          Habitudes = objectifs quotidiens simples. + / − pour compter, streak si objectif atteint.
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="grid2">
+          <div class="span2">
+            <label class="muted small">Nouvelle habitude</label>
+            <div class="row wrap" style="margin-top:6px">
+              <input id="habitNameInput" class="input" placeholder="Ex: 10 min lecture" />
+              <input id="habitTargetInput" class="input" type="number" min="1" max="99" step="1" value="1" title="Objectif/jour">
+              <button id="habitAddBtn" class="btn primary" type="button">Ajouter</button>
+            </div>
+          </div>
+
+          <div>
+            <label class="muted small">Filtre</label>
+            <select id="habitFilterSel" class="select">
+              <option value="all">Toutes</option>
+              <option value="active">Actives</option>
+              <option value="archived">Archivées</option>
+            </select>
+          </div>
+
+          <div>
+            <label class="muted small">Tri</label>
+            <select id="habitSortSel" class="select">
+              <option value="recent">Récentes</option>
+              <option value="streak">Streak</option>
+              <option value="name">Nom</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="divider"></div>
+
+        <div class="row wrap" style="margin-top:0">
+          <div class="muted small">Aujourd’hui :</div>
+          <div class="muted small"><b id="habitTodayLabel">—</b></div>
+          <button id="habitsResetTodayBtn" class="btn ghost" type="button">Reset du jour</button>
+        </div>
+
+        <div class="list" id="habitsList"></div>
+      </section>
+
+      <section class="tabPage" id="right-mood">
+        <p class="muted small">Mood (module suivant).</p>
+      </section>
+
+      <section class="tabPage" id="right-calendar">
+        <p class="muted small">Calendrier (module suivant).</p>
+      </section>
+
+      <section class="tabPage" id="right-notes">
+        <p class="muted small">Notes (raccourci : utilise “Notes” au centre).</p>
+      </section>
+
+      <section class="tabPage" id="right-stats">
+        <p class="muted small">Stats (raccourci : utilise “Stats” au centre).</p>
+      </section>
     </div>
   </aside>
 
@@ -318,7 +350,6 @@ Format : Titre - 3 (Éthorions)"></textarea>
       <div class="modalTitle">Paramètres Pomodoro</div>
       <button id="modalClose" class="modalClose" type="button" aria-label="Fermer">×</button>
     </div>
-
     <div class="modalBody">
       <div class="grid2">
         <div>
@@ -345,7 +376,7 @@ Format : Titre - 3 (Éthorions)"></textarea>
     </div>
   </div>
 
-  <!-- OVERLAY CENTRAL -->
+  <!-- OVERLAY CENTRAL (Notes / Typhonse / Kiffance / Stats) -->
   <div id="overlayModal" class="modal modalOverlay" hidden role="dialog" aria-modal="true" aria-label="Fenêtre centrale">
     <div class="modalHead">
       <div class="modalTitle" id="overlayTitle">Fenêtre</div>
@@ -365,7 +396,7 @@ Format : Titre - 3 (Éthorions)"></textarea>
       </section>
 
       <section id="overlay-typhonse" class="overlayPage" hidden>
-        <p class="muted small">Typhonse = liste rapide (un item par ligne). Auto-sauvegarde.</p>
+        <p class="muted small">Typhonse = liste rapide. Auto-sauvegarde.</p>
 
         <div class="row wrap">
           <input id="typhonseInput" class="input" placeholder="Ajouter un item Typhonse…" />
